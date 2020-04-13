@@ -4,24 +4,24 @@
 
 ## 阶段一：运算指令
 
-### SSLI、SRLI、SRAI
+### SLLI、SRLI、SRAI
 
 - 偏移立即数指令，三条指令分别为逻辑左移、逻辑右移、算数右移
 - **opcode**为0010011，**SLLI**、**SRLI**、**SRAI**的**func3**字段分别为001、101、101
 - 指令具体格式如下，按inst[31:0]的顺序（**src**和**dest**各占5位，**opcode**占7位，**fun3**占3位）
-  - *000000     位移次数[4:0]      src     SLLI      dest     opcode*
-  - *000000     位移次数[4:0]      src     SRLI      dest     opcode*
-  - *010000     位移次数[4:0]      src     SRAI      dest     opcode*
+  - *0000000     位移次数[4:0]      src     SLLI      dest     opcode*
+  - *0000000     位移次数[4:0]      src     SRLI      dest     opcode*
+  - *0100000     位移次数[4:0]      src     SRAI      dest     opcode*
 
 ### ADD、SUB、SLL、SRL、SRA、SLT、SLTU、XOR、OR、AND
 
 - 加法、减法、逻辑左移、逻辑右移、算数右移、符号数比较（*rs1 < rs2 **?** rd = 1 **:** rd = 0*）、无符号数比较（*rs1 < rs2 **?** rd = 1 **:** rd = 0*）、亦或、或、与
 - **opcode**为0110011，不同指令的**func3**字段分别为：**ADD**/**SUB**（000）、**SLL**（001）、**SLT**（010）、**SLTU**（011）、**XOR**（100）、**SRL** /**SRA**（101）、**OR**（110）、**AND**（111）
 - 指令具体格式如下，按inst[31:0]的顺序（**src**和**dest**各占5位，**opcode**占7位，**fun3**占3位）
-  - *000000     src2      src1     ADD/SLT/SLTU      dest     opcode*
-  - *000000     src2      src1     XOR/OR/AND        dest     opcode*
-  - *000000     src2      src1     SLL/SRL                 dest     opcode*
-  - *010000     src2      src1     SUB/SRA               dest     opcode*
+  - *0000000     src2      src1     ADD/SLT/SLTU      dest     opcode*
+  - *0000000     src2      src1     XOR/OR/AND        dest     opcode*
+  - *0000000     src2      src1     SLL/SRL                 dest     opcode*
+  - *0100000     src2      src1     SUB/SRA               dest     opcode*
 
 ### ADDI、SLTI、SLTIU、XORI、ORI、ANDI
 
@@ -62,7 +62,7 @@
 
 ### BEQ、BNE、BLT、BGE、BLTU、BGEU
 
-- 分支指令，**BEQ**：**rs1 == rs2** 则跳转；**BNE**：**rs1 != rs2 **则跳转；**BLT**：**rs1 <= rs2 **则跳转；**BGT**：**rs1 >= rs2 **则跳转；**BLTU**和**BGEU**分别是**BLT**和**BGE**的无符号数版本。所有分支指令采用SB类指令格式，12位B立即数编码了以2字节倍数的有符号偏移量，并被加到当前**PC**上，生成目标地址
+- 分支指令，**BEQ**：**rs1 == rs2** 则跳转；**BNE**：**rs1 != rs2 **则跳转；**BLT**：**rs1 < rs2 **则跳转；**BGE**：**rs1 >= rs2 **则跳转；**BLTU**和**BGEU**分别是**BLT**和**BGE**的无符号数版本。所有分支指令采用SB类指令格式，12位B立即数编码了以2字节倍数的有符号偏移量，并被加到当前**PC**上，生成目标地址
 - **opcode**为1100011，不同指令的**func3**字段分别为：**BEQ**（000）、**BNE**（001）、**BLT**（100）、**BGE**（101）、**BLTU**（110）、**BGEU**（111）
 - 指令具体格式如下，按inst[31:0]的顺序（**rs1**和**rs2**占5位，**func3**占5位，**opcode**占7位）
   - *imm[12, 10:5]      rs2      rs1     func3     imm[4:1, 11]       opcode*
