@@ -1,0 +1,20 @@
+
+CSR.om：     文件格式 elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00010054 <_start>:
+   10054:	01100293          	li	t0,17
+   10058:	01200313          	li	t1,18
+   1005c:	01300393          	li	t2,19
+   10060:	01400e13          	li	t3,20
+   10064:	01500e93          	li	t4,21
+   10068:	01600f13          	li	t5,22
+   1006c:	00100f93          	li	t6,1
+   10070:	00a29373          	csrrw	t1,0xa,t0
+   10074:	00b3ae73          	csrrs	t3,0xb,t2
+   10078:	00cd5ef3          	csrrwi	t4,0xc,26
+   1007c:	00ddef73          	csrrsi	t5,0xd,27
+   10080:	00afb2f3          	csrrc	t0,0xa,t6
+   10084:	00b17373          	csrrci	t1,0xb,2
