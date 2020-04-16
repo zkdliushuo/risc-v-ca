@@ -1,0 +1,41 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu Apr 16 13:10:02 2020
+# Process ID: 3300
+# Current directory: G:/ustc_ca2020_lab/RISCV_lab2_CSR
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3004 G:\ustc_ca2020_lab\RISCV_lab2_CSR\RISCV_lab2.xpr
+# Log file: G:/ustc_ca2020_lab/RISCV_lab2_CSR/vivado.log
+# Journal file: G:/ustc_ca2020_lab/RISCV_lab2_CSR\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project G:/ustc_ca2020_lab/RISCV_lab2_CSR/RISCV_lab2.xpr
+update_compile_order -fileset sources_1
+file mkdir G:/ustc_ca2020_lab/RISCV_lab2_CSR/RISCV_lab2.srcs/sources_1/new
+close [ open G:/ustc_ca2020_lab/RISCV_lab2_CSR/RISCV_lab2.srcs/sources_1/new/CsrFile.v w ]
+add_files G:/ustc_ca2020_lab/RISCV_lab2_CSR/RISCV_lab2.srcs/sources_1/new/CsrFile.v
+update_compile_order -fileset sources_1
+close [ open G:/ustc_ca2020_lab/RISCV_lab2_CSR/RISCV_lab2.srcs/sources_1/new/CsrCalUnit.v w ]
+add_files G:/ustc_ca2020_lab/RISCV_lab2_CSR/RISCV_lab2.srcs/sources_1/new/CsrCalUnit.v
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+launch_simulation
+open_wave_config G:/ustc_ca2020_lab/RISCV_lab2_CSR/seg12.wcfg
+source testBench.tcl
+current_wave_config {seg12.wcfg}
+add_wave {{/testBench/RV32ICore1/CsrFile1/csrs}} {{/testBench/RV32ICore1/CsrFile1/csrs[13]}} {{/testBench/RV32ICore1/CsrFile1/csrs[12]}} {{/testBench/RV32ICore1/CsrFile1/csrs[11]}} {{/testBench/RV32ICore1/CsrFile1/csrs[10]}} 
+relaunch_sim
+save_wave_config {G:/ustc_ca2020_lab/RISCV_lab2_CSR/seg12.wcfg}
+relaunch_sim
+close_sim
+launch_simulation
+open_wave_config G:/ustc_ca2020_lab/RISCV_lab2_CSR/seg12.wcfg
+source testBench.tcl
+relaunch_sim
+current_wave_config {seg12.wcfg}
+add_wave {{/testBench/RV32ICore1/RegisterFile1/reg_file[31]}} {{/testBench/RV32ICore1/RegisterFile1/reg_file[30]}} {{/testBench/RV32ICore1/RegisterFile1/reg_file[29]}} {{/testBench/RV32ICore1/RegisterFile1/reg_file[28]}} {{/testBench/RV32ICore1/RegisterFile1/reg_file[27]}} {{/testBench/RV32ICore1/RegisterFile1/reg_file[26]}} {{/testBench/RV32ICore1/RegisterFile1/reg_file[25]}} {{/testBench/RV32ICore1/RegisterFile1/reg_file[24]}} {{/testBench/RV32ICore1/RegisterFile1/reg_file[23]}} {{/testBench/RV32ICore1/RegisterFile1/reg_file[22]}} 
+relaunch_sim
+save_wave_config {G:/ustc_ca2020_lab/RISCV_lab2_CSR/seg12.wcfg}
+close_sim
