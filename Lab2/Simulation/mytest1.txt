@@ -1,0 +1,28 @@
+
+mytest1.om：     文件格式 elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00010054 <_start>:
+   10054:	f000f0b7          	lui	ra,0xf000f
+   10058:	00409113          	slli	sp,ra,0x4
+   1005c:	0040d193          	srli	gp,ra,0x4
+   10060:	4080d213          	srai	tp,ra,0x8
+   10064:	0f027293          	andi	t0,tp,240
+   10068:	0fe2e313          	ori	t1,t0,254
+   1006c:	0f024393          	xori	t2,tp,240
+   10070:	00527433          	and	s0,tp,t0
+   10074:	007464b3          	or	s1,s0,t2
+   10078:	00944533          	xor	a0,s0,s1
+   1007c:	00400593          	li	a1,4
+   10080:	00b55633          	srl	a2,a0,a1
+   10084:	40b556b3          	sra	a3,a0,a1
+   10088:	00b51733          	sll	a4,a0,a1
+   1008c:	00e687b3          	add	a5,a3,a4
+   10090:	40e68833          	sub	a6,a3,a4
+   10094:	0107a8b3          	slt	a7,a5,a6
+   10098:	0107b933          	sltu	s2,a5,a6
+   1009c:	fff8a993          	slti	s3,a7,-1
+   100a0:	fff8ba13          	sltiu	s4,a7,-1
+   100a4:	00001a97          	auipc	s5,0x1
