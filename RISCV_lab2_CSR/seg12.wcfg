@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="75224045546fs"></ZoomEndTime>
-      <Cursor1Time time="449238000000fs"></Cursor1Time>
+      <ZoomStartTime time="16414000000fs"></ZoomStartTime>
+      <ZoomEndTime time="16469200001fs"></ZoomEndTime>
+      <Cursor1Time time="16454000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="241"></NameColumnWidth>
-      <ValueColumnWidth column_width="117"></ValueColumnWidth>
+      <ValueColumnWidth column_width="111"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="36" />
+   <WVObjectSize size="30" />
    <wvobject fp_name="/testBench/RV32ICore1/IR_ID1/inst_ID" type="array">
       <obj_property name="ElementShortName">inst_ID[31:0]</obj_property>
       <obj_property name="ObjectShortName">inst_ID[31:0]</obj_property>
@@ -81,109 +81,121 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/testBench/RV32ICore1/RegisterFile1/reg_file[10]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[10][31:0]</obj_property>
       <obj_property name="ObjectShortName">[10][31:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">x10</obj_property>
    </wvobject>
    <wvobject fp_name="/testBench/RV32ICore1/RegisterFile1/reg_file[9]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[9][31:0]</obj_property>
       <obj_property name="ObjectShortName">[9][31:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">x9</obj_property>
    </wvobject>
    <wvobject fp_name="/testBench/RV32ICore1/RegisterFile1/reg_file[8]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[8][31:0]</obj_property>
       <obj_property name="ObjectShortName">[8][31:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">x8</obj_property>
    </wvobject>
    <wvobject fp_name="/testBench/RV32ICore1/RegisterFile1/reg_file[7]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[7][31:0]</obj_property>
       <obj_property name="ObjectShortName">[7][31:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">x7(t2)</obj_property>
    </wvobject>
    <wvobject fp_name="/testBench/RV32ICore1/RegisterFile1/reg_file[6]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[6][31:0]</obj_property>
       <obj_property name="ObjectShortName">[6][31:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">x6(t1)</obj_property>
    </wvobject>
    <wvobject fp_name="/testBench/RV32ICore1/RegisterFile1/reg_file[5]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[5][31:0]</obj_property>
       <obj_property name="ObjectShortName">[5][31:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">x5(t0)</obj_property>
    </wvobject>
    <wvobject fp_name="/testBench/RV32ICore1/RegisterFile1/reg_file[4]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[4][31:0]</obj_property>
       <obj_property name="ObjectShortName">[4][31:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">x4</obj_property>
    </wvobject>
    <wvobject fp_name="/testBench/RV32ICore1/RegisterFile1/reg_file[3]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[3][31:0]</obj_property>
       <obj_property name="ObjectShortName">[3][31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="label">x3</obj_property>
    </wvobject>
    <wvobject fp_name="/testBench/RV32ICore1/RegisterFile1/reg_file[2]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[2][31:0]</obj_property>
       <obj_property name="ObjectShortName">[2][31:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">x2</obj_property>
    </wvobject>
    <wvobject fp_name="/testBench/RV32ICore1/RegisterFile1/reg_file[1]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[1][31:0]</obj_property>
       <obj_property name="ObjectShortName">[1][31:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">x1</obj_property>
    </wvobject>
    <wvobject fp_name="/testBench/RV32ICore1/CsrFile1/csrs[13]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[13][31:0]</obj_property>
       <obj_property name="ObjectShortName">[13][31:0]</obj_property>
+      <obj_property name="label">CSR_13</obj_property>
    </wvobject>
    <wvobject fp_name="/testBench/RV32ICore1/CsrFile1/csrs[12]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[12][31:0]</obj_property>
       <obj_property name="ObjectShortName">[12][31:0]</obj_property>
+      <obj_property name="label">CSR_12</obj_property>
    </wvobject>
    <wvobject fp_name="/testBench/RV32ICore1/CsrFile1/csrs[11]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[11][31:0]</obj_property>
       <obj_property name="ObjectShortName">[11][31:0]</obj_property>
+      <obj_property name="label">CSR_11</obj_property>
    </wvobject>
    <wvobject fp_name="/testBench/RV32ICore1/CsrFile1/csrs[10]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[10][31:0]</obj_property>
       <obj_property name="ObjectShortName">[10][31:0]</obj_property>
+      <obj_property name="label">CSR_10</obj_property>
    </wvobject>
    <wvobject fp_name="/testBench/RV32ICore1/RegisterFile1/reg_file[31]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[31][31:0]</obj_property>
       <obj_property name="ObjectShortName">[31][31:0]</obj_property>
+      <obj_property name="label">t6</obj_property>
    </wvobject>
    <wvobject fp_name="/testBench/RV32ICore1/RegisterFile1/reg_file[30]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[30][31:0]</obj_property>
       <obj_property name="ObjectShortName">[30][31:0]</obj_property>
+      <obj_property name="label">t5</obj_property>
    </wvobject>
    <wvobject fp_name="/testBench/RV32ICore1/RegisterFile1/reg_file[29]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[29][31:0]</obj_property>
       <obj_property name="ObjectShortName">[29][31:0]</obj_property>
+      <obj_property name="label">t4</obj_property>
    </wvobject>
    <wvobject fp_name="/testBench/RV32ICore1/RegisterFile1/reg_file[28]" type="array">
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">[28][31:0]</obj_property>
       <obj_property name="ObjectShortName">[28][31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testBench/RV32ICore1/RegisterFile1/reg_file[27]" type="array">
-      <obj_property name="ElementShortName">[27][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[27][31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testBench/RV32ICore1/RegisterFile1/reg_file[26]" type="array">
-      <obj_property name="ElementShortName">[26][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[26][31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testBench/RV32ICore1/RegisterFile1/reg_file[25]" type="array">
-      <obj_property name="ElementShortName">[25][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[25][31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testBench/RV32ICore1/RegisterFile1/reg_file[24]" type="array">
-      <obj_property name="ElementShortName">[24][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[24][31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testBench/RV32ICore1/RegisterFile1/reg_file[23]" type="array">
-      <obj_property name="ElementShortName">[23][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[23][31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testBench/RV32ICore1/RegisterFile1/reg_file[22]" type="array">
-      <obj_property name="ElementShortName">[22][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[22][31:0]</obj_property>
+      <obj_property name="label">t3</obj_property>
    </wvobject>
 </wave_config>

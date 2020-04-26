@@ -4,7 +4,7 @@ May 24 2019
 15:06:07
 G:/ustc_ca2020_lab/RISCV_lab2/RISCV_lab2.srcs/sources_1/imports/SourceCode/Parameters.v,1586758829,verilog,,,,,,,,,,,,
 G:/ustc_ca2020_lab/RISCV_lab2_CSR/RISCV_lab2.sim/sim_1/behav/xsim/glbl.v,1558713910,verilog,,,,glbl,,,,,,,,
-G:/ustc_ca2020_lab/RISCV_lab2_CSR/RISCV_lab2.srcs/sim_1/imports/Simulation/testBench.v,1587048970,verilog,,,,testBench,,,,,,,,
+G:/ustc_ca2020_lab/RISCV_lab2_CSR/RISCV_lab2.srcs/sim_1/imports/Simulation/testBench.v,1587126581,verilog,,,,testBench,,,,,,,,
 G:/ustc_ca2020_lab/RISCV_lab2_CSR/RISCV_lab2.srcs/sources_1/imports/SourceCode/ALU.v,1586799821,verilog,,G:/ustc_ca2020_lab/RISCV_lab2_CSR/RISCV_lab2.srcs/sources_1/imports/SourceCode/IdExSegReg/AddrEx.v,G:/ustc_ca2020_lab/RISCV_lab2_CSR/RISCV_lab2.srcs/sources_1/imports/SourceCode/Parameters.v,ALU,,,,,,,,
 G:/ustc_ca2020_lab/RISCV_lab2_CSR/RISCV_lab2.srcs/sources_1/imports/SourceCode/BranchDecision.v,1586834459,verilog,,G:/ustc_ca2020_lab/RISCV_lab2_CSR/RISCV_lab2.srcs/sources_1/imports/SourceCode/ControllerDecoder.v,G:/ustc_ca2020_lab/RISCV_lab2_CSR/RISCV_lab2.srcs/sources_1/imports/SourceCode/Parameters.v,BranchDecision,,,,,,,,
 G:/ustc_ca2020_lab/RISCV_lab2_CSR/RISCV_lab2.srcs/sources_1/imports/SourceCode/Cache/DataCache.v,1586758829,verilog,,G:/ustc_ca2020_lab/RISCV_lab2_CSR/RISCV_lab2.srcs/sources_1/imports/SourceCode/DataExtend.v,,DataCache,,,,,,,,
