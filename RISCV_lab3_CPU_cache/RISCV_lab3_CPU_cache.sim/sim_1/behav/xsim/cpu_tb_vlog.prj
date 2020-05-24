@@ -1,0 +1,44 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CPUSrcCode/ALU.v" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CPUSrcCode/IdExSegReg/AddrEx.v" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CPUSrcCode/ExMemSegReg/AddrMem.v" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CPUSrcCode/MemWbSegReg/AddrWb.v" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CPUSrcCode/IdExSegReg/BrTarget.v" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CPUSrcCode/BranchDecision.v" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CPUSrcCode/ControllerDecoder.v" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CPUSrcCode/IdExSegReg/CtrlEx.v" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CPUSrcCode/ExMemSegReg/CtrlMem.v" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CPUSrcCode/MemWbSegReg/CtrlWb.v" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CPUSrcCode/DataExtend.v" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CPUSrcCode/GeneralRegister.v" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CPUSrcCode/Hazard.v" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CPUSrcCode/IfIdSegReg/IR.v" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CPUSrcCode/ImmExtend.v" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CPUSrcCode/Cache/InstructionCache.v" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CPUSrcCode/NPCGenerator.v" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CPUSrcCode/IdExSegReg/Op1.v" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CPUSrcCode/IdExSegReg/Op2.v" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CPUSrcCode/PC.v" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CPUSrcCode/IdExSegReg/PcEx.v" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CPUSrcCode/IfIdSegReg/PcId.v" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CPUSrcCode/RV32ICore.v" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CPUSrcCode/IdExSegReg/Reg2Ex.v" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CPUSrcCode/ExMemSegReg/Reg2Mem.v" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CPUSrcCode/ExMemSegReg/Result.v" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CPUSrcCode/MemWbSegReg/WbData.v" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/new/cache_miss_count.v" \
+
+sv xil_defaultlib  \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CacheSrcCode/cache.sv" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CacheSrcCode/main_mem.sv" \
+"../../../../RISCV_lab3_CPU_cache.srcs/sources_1/imports/Lab3/CacheSrcCode/mem.sv" \
+
+verilog xil_defaultlib  \
+"../../../../RISCV_lab3_CPU_cache.srcs/sim_1/imports/Testbench/cpu_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

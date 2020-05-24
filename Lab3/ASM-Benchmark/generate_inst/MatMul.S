@@ -62,4 +62,5 @@ Loop:
     blt    t1, t0, Loop
 InfLoop:
     jal    zero, InfLoop
+    addi   zero,0
     

@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Sun May 17 22:30:41 2020
+# Process ID: 22544
+# Current directory: G:/ustc_ca2020_lab/RISCV_lab3_CPU_cache/RISCV_lab3_CPU_cache.sim/sim_1/behav/xsim
+# Command line: wbtcv.exe -mode batch -source G:/ustc_ca2020_lab/RISCV_lab3_CPU_cache/RISCV_lab3_CPU_cache.sim/sim_1/behav/xsim/xsim.dir/cpu_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: G:/ustc_ca2020_lab/RISCV_lab3_CPU_cache/RISCV_lab3_CPU_cache.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: G:/ustc_ca2020_lab/RISCV_lab3_CPU_cache/RISCV_lab3_CPU_cache.sim/sim_1/behav/xsim\webtalk.jou
+#-----------------------------------------------------------
+source G:/ustc_ca2020_lab/RISCV_lab3_CPU_cache/RISCV_lab3_CPU_cache.sim/sim_1/behav/xsim/xsim.dir/cpu_tb_behav/webtalk/xsim_webtalk.tcl -notrace

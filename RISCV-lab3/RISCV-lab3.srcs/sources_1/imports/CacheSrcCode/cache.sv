@@ -1,7 +1,7 @@
 // section 1:理解直接映射
 // section 2:实现fifo
 // section 3:实现lru
-`define LRU
+`define LRU1
 module cache #(
     parameter  LINE_ADDR_LEN = 3, // line内地址长度，决定了每个line具有2^3个word
     parameter  SET_ADDR_LEN  = 3, // 组地址长度，决定了一共有2^3=8组
@@ -52,16 +52,13 @@ wire mem_gnt;      // 主存响应读写的握手信号
 assign {unused_addr, tag_addr, set_addr, line_addr, word_addr} = addr;  
 // 拆分 32bit ADDR
 
-`ifdef FIFO
 
-reg [WAY_CNT-1:0] fifo_index [SET_SIZE];
-// 下面是判定是否命中逻辑
 reg [WAY_CNT-1:0] hit_flag;
 reg [WAY_CNT-1:0] line_hit_addr;
 wire cache_hit = | hit_flag;
 always @ (*) begin              // 判断 是否命中
     for (integer i=0; i<WAY_CNT; i++) begin
-        if (valid[set_addr][i] && cache_tags[set_addr][i] == tag_addr) begin   //判断每一路是否命�???? 
+        if (valid[set_addr][i] && cache_tags[set_addr][i] == tag_addr) begin   //判断每一路是否命中 
             hit_flag[i]=1;
             line_hit_addr=i;
         end
@@ -70,6 +67,11 @@ always @ (*) begin              // 判断 是否命中
         end
     end
 end
+
+`ifdef FIFO
+
+reg [WAY_CNT-1:0] fifo_index [SET_SIZE];
+// 下面是判定是否命中逻辑
 
 always @ (posedge clk or posedge rst) begin     //
     if(rst) begin
@@ -134,28 +136,12 @@ always @ (posedge clk or posedge rst) begin     //
 end
 `endif
 
-`ifdef LRU
+`ifdef FIFO1
 int lru_queue[SET_SIZE][$];
-// 下面是判定是否命中逻辑
-reg [WAY_CNT-1:0] hit_flag;
-reg [WAY_CNT-1:0] line_hit_addr;
-wire cache_hit = | hit_flag;
-always @ (*) begin              // 判断 是否命中
-    for (integer i=0; i<WAY_CNT; i++) begin
-        if (valid[set_addr][i] && cache_tags[set_addr][i] == tag_addr) begin   //判断每一路是否命�???? 
-            hit_flag[i]=1;
-            line_hit_addr=i;
-        end
-        else begin
-            hit_flag[i]=0;
-        end
-    end
-end
 
 always @ (posedge clk or posedge rst) begin     //
     if(rst) begin
         // 复位后，状态为IDLE，dirty和valid清零
-        // 每个组里的fifo队列寄存器清零
         cache_stat <= IDLE;
         for(integer i=0; i<SET_SIZE; i++) begin
             for (integer j=0; j<WAY_CNT; j++) begin
@@ -216,6 +202,84 @@ always @ (posedge clk or posedge rst) begin     //
     end
 end
 `endif
+
+
+`ifdef LRU1
+
+int lru_queue[SET_SIZE][$];
+// 下面是判定是否命中逻辑
+
+always @ (posedge clk or posedge rst) begin     //
+    if(rst) begin
+        cache_stat <= IDLE;
+        for(integer i=0; i<SET_SIZE; i++) begin
+            lru_queue[i].delete();
+            for (integer j=0; j<WAY_CNT; j++) begin
+                dirty[i][j] = 1'b0;
+                valid[i][j] = 1'b0;
+                lru_queue[i].push_back(j);
+            end
+        end
+        for(integer k = 0; k < LINE_SIZE; k++)
+            mem_wr_line[k] <= 0;
+        mem_wr_addr <= 0;
+        {mem_rd_tag_addr, mem_rd_set_addr} <= 0;
+        rd_data <= 0;
+    end else begin
+        case(cache_stat)
+        IDLE:       begin
+                        if(cache_hit) begin
+                            if(rd_req) begin    // 如果cache命中，并且是读请求，
+                                rd_data <= cache_mem[set_addr][line_hit_addr][line_addr];   //则直接从cache中取出要读的数据
+                            end else if(wr_req) begin // 如果cache命中，并且是写请求，
+                                cache_mem[set_addr][line_hit_addr][line_addr] <= wr_data;   // 则直接向cache中写入数据
+                                dirty[set_addr][line_hit_addr] <= 1'b1;                     // 写数据的同时置脏位
+                            end 
+                            if(rd_req|wr_req) begin
+                                for (integer i=0; i<WAY_CNT; i++) begin
+                                    if(lru_queue[set_addr][i]==int'(line_hit_addr)) begin
+                                        lru_queue[set_addr].delete(i);
+                                    end
+                                end
+                                lru_queue[set_addr].push_back(line_hit_addr);
+                            end
+                        end else begin
+                            if(wr_req | rd_req) begin   // 如果 cache 未命中，并且有读写请求，则需要进行换入
+                                if(valid[set_addr][lru_queue[set_addr][0]] & dirty[set_addr][lru_queue[set_addr][0]]) begin    // 如果 要换入的cache line 本来有效，且脏，则需要先将它换出
+                                    cache_stat  <= SWAP_OUT;
+                                    mem_wr_addr <= { cache_tags[set_addr][lru_queue[set_addr][0]], set_addr };
+                                    mem_wr_line <= cache_mem[set_addr][lru_queue[set_addr][0]];
+                                end else begin                                   // 反之，不需要换出，直接换入
+                                    cache_stat  <= SWAP_IN;
+                                end
+                                {mem_rd_tag_addr, mem_rd_set_addr} <= {tag_addr, set_addr};
+                            end
+                        end
+                    end
+        SWAP_OUT:   begin
+                        if(mem_gnt) begin           // 如果主存握手信号有效，说明换出成功，跳到下一状态
+                            cache_stat <= SWAP_IN;
+                        end
+                    end
+        SWAP_IN:    begin
+                        if(mem_gnt) begin           // 如果主存握手信号有效，说明换入成功，跳到下一状态
+                            cache_stat <= SWAP_IN_OK;
+                        end
+                    end
+        SWAP_IN_OK: begin           // 上一个周期换入成功，这周期将主存读出的line写入cache，并更新tag，置高valid，置低dirty
+                        for(integer i=0; i<LINE_SIZE; i++)  cache_mem[mem_rd_set_addr][lru_queue[set_addr][0]][i] <= mem_rd_line[i];
+                        cache_tags[mem_rd_set_addr][lru_queue[set_addr][0]] <= mem_rd_tag_addr;
+                        valid     [mem_rd_set_addr][lru_queue[set_addr][0]] <= 1'b1;
+                        dirty     [mem_rd_set_addr][lru_queue[set_addr][0]] <= 1'b0;
+                        lru_queue[set_addr].push_back(lru_queue[set_addr][0]);
+                        lru_queue[set_addr].pop_front();
+                        cache_stat <= IDLE;        // 回到就绪状态
+                    end
+        endcase
+    end
+end
+`endif
+
 wire mem_rd_req = (cache_stat == SWAP_IN );
 wire mem_wr_req = (cache_stat == SWAP_OUT);
 wire [   MEM_ADDR_LEN-1 :0] mem_addr = mem_rd_req ? mem_rd_addr : ( mem_wr_req ? mem_wr_addr : 0);
